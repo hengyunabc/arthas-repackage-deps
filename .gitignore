@@ -1,0 +1,12 @@
+.DS_Store
+/target
+**/.settings
+**/.classpath
+**/.project
+/.idea
+**/*.iml
+/nb-configuration.xml
+**/target
+**/*.orig
+
+**/dependency-reduced-pom.xml
