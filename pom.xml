@@ -32,7 +32,7 @@
 
     <groupId>com.alibaba.arthas</groupId>
     <artifactId>arthas-repackage-deps</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>arthas-repackage-deps</name>
