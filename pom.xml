@@ -48,7 +48,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.source>1.6</maven.compiler.source>
-        <arthas.deps.package>com.alibaba.arthas.deps</arthas.deps.package>
+        <arthas.deps.package>io.alibaba.test</arthas.deps.package>
         <asm.version>8.0.1</asm.version>
     </properties>
 
