@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.alibaba.arthas.test</groupId>
         <artifactId>arthas-repackage-deps</artifactId>
-        <version>0.0.6-SNAPSHOT</version>
+        <version>0.0.6</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>io.alibaba.arthas.test</groupId>
