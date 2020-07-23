@@ -57,6 +57,18 @@
                                     <pattern>logback.configurationFile</pattern>
                                     <shadedPattern>arthas.logback.configurationFile</shadedPattern>
                                 </relocation>
+                                <relocation>
+                                    <pattern>logback.xml</pattern>
+                                    <shadedPattern>arthas-logback.xml</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>logback-test.xml</pattern>
+                                    <shadedPattern>arthas-logback-test.xml</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>logback.groovy</pattern>
+                                    <shadedPattern>arthas-logback.groovy</shadedPattern>
+                                </relocation>
 
                                 <relocation>
                                     <pattern>org.objectweb.asm</pattern>
