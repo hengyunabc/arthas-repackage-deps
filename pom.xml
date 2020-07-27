@@ -42,6 +42,7 @@
     <modules>
         <module>arthas-repackage-asm</module>
         <module>arthas-repackage-logger</module>
+        <module>arthas-repackage-netty</module>
     </modules>
 
     <properties>
@@ -50,6 +51,7 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <arthas.deps.package>com.alibaba.arthas.deps</arthas.deps.package>
         <asm.version>8.0.1</asm.version>
+        <netty.version>4.1.46.Final</netty.version>
     </properties>
 
     <dependencyManagement>
@@ -91,6 +93,32 @@
                 <version>1.2.3</version>
             </dependency>
 
+            <!-- netty -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-common</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-buffer</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-handler</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-transport</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-codec-http</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
