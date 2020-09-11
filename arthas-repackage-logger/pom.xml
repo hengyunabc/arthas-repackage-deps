@@ -69,6 +69,10 @@
                                     <pattern>logback.groovy</pattern>
                                     <shadedPattern>arthas-logback.groovy</shadedPattern>
                                 </relocation>
+                                <relocation>
+                                    <pattern>logback.statusListenerClass</pattern>
+                                    <shadedPattern>arthas.logback.statusListenerClass</shadedPattern>
+                                </relocation>
 
                                 <relocation>
                                     <pattern>org.objectweb.asm</pattern>
