@@ -1,4 +1,4 @@
-package com.alibaba.arthas.deps;
+package com.alibaba.deps;
 
 /**
  * fix Event: Failed: Javadoc Validation

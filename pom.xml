@@ -40,7 +40,7 @@
     <url>https://github.com/hengyunabc/arthas-repackage-deps</url>
 
     <modules>
-        <module>arthas-repackage-asm</module>
+        <module>repackage-asm</module>
         <module>arthas-repackage-logger</module>
     </modules>
 
@@ -48,6 +48,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.source>1.6</maven.compiler.source>
+        <deps.package>com.alibaba.deps</deps.package>
         <arthas.deps.package>com.alibaba.arthas.deps</arthas.deps.package>
         <asm.version>9.0</asm.version>
     </properties>

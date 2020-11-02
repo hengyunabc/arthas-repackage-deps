@@ -7,9 +7,9 @@
         <version>0.0.7-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <groupId>com.alibaba.arthas</groupId>
-    <artifactId>arthas-repackage-asm</artifactId>
-    <name>arthas-repackage-asm</name>
+    <groupId>com.alibaba</groupId>
+    <artifactId>repackage-asm</artifactId>
+    <name>repackage-asm</name>
 
     <dependencies>
         <dependency>
@@ -59,7 +59,7 @@
                             <relocations>
                                 <relocation>
                                     <pattern>org.objectweb.asm</pattern>
-                                    <shadedPattern>${arthas.deps.package}.org.objectweb.asm</shadedPattern>
+                                    <shadedPattern>${deps.package}.org.objectweb.asm</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>
