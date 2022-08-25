@@ -10,3 +10,4 @@
 **/*.orig
 
 **/dependency-reduced-pom.xml
+**/.flattened-pom.xml
