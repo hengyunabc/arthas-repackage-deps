@@ -169,10 +169,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
+                <version>3.4.1</version>
                 <configuration>
-                    <additionalparam>-Xdoclint:none</additionalparam>
+                    <doclint>-html,-syntax,-accessibility,-missing</doclint>
                     <source>8</source>
+                    <quiet>true</quiet>
+                    <failOnError>false</failOnError>
                 </configuration>
                 <executions>
                     <execution>
