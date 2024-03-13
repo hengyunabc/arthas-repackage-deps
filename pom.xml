@@ -52,7 +52,7 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <deps.package>com.alibaba.deps</deps.package>
         <arthas.deps.package>com.alibaba.arthas.deps</arthas.deps.package>
-        <asm.version>9.5</asm.version>
+        <asm.version>9.6</asm.version>
     </properties>
 
     <dependencyManagement>
