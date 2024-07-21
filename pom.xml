@@ -120,6 +120,16 @@
                                 </goals>
                             </execution>
                         </executions>
+
+                        <configuration>
+                            <gpgArguments>
+                                <arg>--keyserver</arg>
+                                <arg>hkps://keyserver.ubuntu.com</arg>                                <!-- 这里指定你的 keyserver -->
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                            <useGpgCmd>true</useGpgCmd>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
