@@ -36,8 +36,38 @@ jobs:
           server-id: central
           server-username: CENTRAL_USERNAME
           server-password: CENTRAL_PASSWORD
-          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
-          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+
+      - name: Validate release secrets
+        shell: bash
+        env:
+          CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
+          CENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
+          MAVEN_GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+        run: |
+          missing=0
+          for name in CENTRAL_USERNAME CENTRAL_PASSWORD MAVEN_GPG_PRIVATE_KEY MAVEN_GPG_PASSPHRASE; do
+            if [ -z "${!name}" ]; then
+              echo "::error::$name is empty. Configure it as a GitHub Actions secret, not a repository variable."
+              missing=1
+            fi
+          done
+          exit "$missing"
+
+      - name: Import GPG private key
+        shell: bash
+        env:
+          MAVEN_GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.gnupg
+          chmod 700 ~/.gnupg
+          if grep -q "BEGIN PGP PRIVATE KEY BLOCK" <<< "$MAVEN_GPG_PRIVATE_KEY"; then
+            printf '%s' "$MAVEN_GPG_PRIVATE_KEY" | gpg --batch --import
+          else
+            printf '%s' "$MAVEN_GPG_PRIVATE_KEY" | base64 --decode | gpg --batch --import
+          fi
+          gpg --batch --list-secret-keys --keyid-format LONG
 
       - name: Resolve release version
         id: release
