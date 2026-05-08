@@ -47,6 +47,8 @@
         <deps.package>com.alibaba.deps</deps.package>
         <arthas.deps.package>com.alibaba.arthas.deps</arthas.deps.package>
         <asm.version>9.9.1</asm.version>
+        <central.autoPublish>false</central.autoPublish>
+        <central.waitUntil>validated</central.waitUntil>
     </properties>
 
     <dependencyManagement>
@@ -105,6 +107,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
+                        <version>3.2.8</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -116,22 +119,22 @@
                         </executions>
 
                         <configuration>
+                            <useAgent>false</useAgent>
                             <gpgArguments>
-                                <arg>--keyserver</arg>
-                                <arg>hkps://keyserver.ubuntu.com</arg>                                <!-- 这里指定你的 keyserver -->
                                 <arg>--pinentry-mode</arg>
                                 <arg>loopback</arg>
                             </gpgArguments>
-                            <useGpgCmd>true</useGpgCmd>
                         </configuration>
                     </plugin>
                     <plugin>
                         <groupId>org.sonatype.central</groupId>
                         <artifactId>central-publishing-maven-plugin</artifactId>
-                        <version>0.9.0</version>
+                        <version>0.10.0</version>
                         <extensions>true</extensions>
                         <configuration>
                             <publishingServerId>central</publishingServerId>
+                            <autoPublish>${central.autoPublish}</autoPublish>
+                            <waitUntil>${central.waitUntil}</waitUntil>
                         </configuration>
                     </plugin>
                 </plugins>
