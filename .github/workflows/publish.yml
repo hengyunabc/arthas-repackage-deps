@@ -3,11 +3,11 @@ name: Publish to Maven Central
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
   workflow_dispatch:
     inputs:
       version:
-        description: 'Release version, for example 0.0.21'
+        description: "Release version, for example 0.0.21"
         required: true
         type: string
 
@@ -32,8 +32,8 @@ jobs:
         env:
           CENTRAL_TOKEN_USERNAME: ${{ secrets.CENTRAL_TOKEN_USERNAME }}
           CENTRAL_TOKEN_PASSWORD: ${{ secrets.CENTRAL_TOKEN_PASSWORD }}
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
         run: |
           missing=0
           for name in CENTRAL_TOKEN_USERNAME CENTRAL_TOKEN_PASSWORD GPG_PRIVATE_KEY GPG_PASSPHRASE; do
@@ -48,13 +48,13 @@ jobs:
         uses: actions/setup-java@v5
         with:
           distribution: temurin
-          java-version: '8'
+          java-version: "8"
           cache: maven
           server-id: central
           server-username: CENTRAL_TOKEN_USERNAME
           server-password: CENTRAL_TOKEN_PASSWORD
-          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-          gpg-passphrase: GPG_PASSPHRASE
+          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
       - name: Resolve release version
         id: release
