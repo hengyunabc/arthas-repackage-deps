@@ -135,6 +135,8 @@
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>${central.autoPublish}</autoPublish>
                             <waitUntil>${central.waitUntil}</waitUntil>
+                            <checksums>all</checksums>
+                            <centralSnapshotsUrl>https://central.sonatype.com/repository/maven-snapshots/</centralSnapshotsUrl>
                         </configuration>
                     </plugin>
                 </plugins>
